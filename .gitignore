@@ -1,0 +1,14 @@
+
+graph_storage/*
+graph_output/*
+*__pycache__*
+.env
+evaluation/*
+
+*.json
+*.log
+*.ipynb
+
+venv/
+refractor_working.py
+.DS_Store

@@ -1,0 +1,78 @@
+# Temporal GraphRAG Configuration File
+# This file contains all configuration parameters for both building and querying graphs
+
+# ===================
+# BUILDING GRAPH CONFIG
+# ===================
+building:
+  # Corpus and data paths
+  corpus_path: "./ECT_data/"
+  working_dir: "./graph_output"  # If null, auto-generated from corpus, model, and datetime
+
+  # Model configuration
+  baseline: "temporalrag"  # Only temporalrag is currently supported
+  provider: "gemini"  # LLM provider: openai, azure, bedrock, gemini, ollama
+  model: "gemini-2.5-flash-lite"
+  
+  # Embedding configuration
+  embedding_provider: "openai"  # Embedding provider: openai, azure, bedrock (defaults to provider if not specified)
+
+  # Chunking parameters
+  chunk_size: 1200  # Max token size per chunk
+  chunk_overlap: 100  # Overlap token size between consecutive chunks
+
+  # Temporal processing
+  enable_seasonal_matching: false  # Enable seasonal matching in temporal normalization
+
+  # Community summary generation
+  enable_community_summary: true  # Enable/disable community summary generation
+
+  # Incremental update settings
+  # These can be overridden via command line arguments (--incremental, --preserve-communities, --force-rebuild)
+  enable_incremental: false  # Enable incremental update mode - only process new documents
+  preserve_communities: false  # Preserve existing community summaries during incremental updates (requires enable_incremental: true)
+  force_rebuild: false  # Force complete rebuild even in incremental mode (overrides enable_incremental)
+
+# ===================
+# QUERYING GRAPH CONFIG
+# ===================
+querying:
+  # Data and model paths
+  corpus_path: "./ECT_data/old"
+  working_dir: "./graph_output"  # Path of graph to be loaded
+  provider: "gemini"  # LLM provider: openai, azure, bedrock, gemini, ollama (auto-detected from model if not specified)
+  model: "gemini-2.5-flash"  # Gemini model name 
+
+  # Query mode
+  mode: "local"  # Query mode: "local", "global"
+
+  # Baseline and evaluation
+  baseline: "temporalrag"  # temporalrag or groundtruth
+  evaluation_mode: "global"  # local or global query evaluation set
+  num_questions: null  # Number of questions to test (if not specified, uses all questions)
+
+  # Output configuration
+  output_file: null  # If empty, auto-generated
+
+  # Retrieval parameters
+  top_k: 50  # Retrieve top_k entities
+  truncated_context_length: 8000  # Context length constraint for in-context learning
+  enable_entity_retrieval: false  # Entity embedding retrieval or entity+description embedding retrieval
+  enable_subgraph: true
+  enable_mixed_relationship: false
+  seed_node_method: "relations"  # entities or relations
+
+  # Token limits for local queries
+  local_max_token_for_text_unit: 4000  # Maximum tokens for sources/text chunks (default: 4000)
+  local_max_token_for_local_context: 6000  # Maximum tokens for entities + relationships (default: 6000, split: 20% entities/1200 tokens, 80% relationships/4800 tokens)
+  local_max_token_for_community_report: 2000  # Maximum tokens for community reports (default: 2000)
+
+  # Token limits for global queries
+  global_max_token_for_community_report: 16384  # Maximum tokens for community reports in global mode (default: 16384)
+
+  # Token limits for naive queries
+  naive_max_token_for_text_unit: 12000  # Maximum tokens for text units in naive mode (default: 12000)
+
+  # Enhanced retrieval system
+  use_enhanced_retrieval: false  # Enable/disable enhanced temporal retrieval system
+  enhanced_output_suffix: "_enhanced"  # Suffix to add to output file when using enhanced retrieval

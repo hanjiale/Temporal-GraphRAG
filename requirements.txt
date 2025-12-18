@@ -1,0 +1,34 @@
+# Core dependencies
+numpy>=1.24.0
+openai>=1.0.0
+python-dotenv>=1.0.0
+tiktoken>=0.5.0
+tqdm>=4.65.0
+tenacity>=8.2.0
+
+# Google Generative AI (for Gemini LLM provider)
+google-genai>=0.2.0
+
+# Graph and network analysis
+networkx>=3.0
+
+# Vector database libraries
+nano-vectordb>=0.1.0
+hnswlib>=0.7.0
+xxhash>=3.2.0
+
+# Async utilities
+nest-asyncio>=1.5.0
+aiohttp>=3.9.0
+
+# Configuration files
+pyyaml>=6.0
+python-dateutil>=2.8.0
+
+# Optional dependencies (uncomment if needed)
+
+# Neo4j graph database (optional - only needed for Neo4jStorage)
+# neo4j>=5.0.0
+
+# AWS Bedrock (optional - only needed for Amazon Bedrock provider)
+# aioboto3>=11.0.0
