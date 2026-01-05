@@ -316,7 +316,8 @@ def get_chunks(
     content_tokens = ENCODER.encode_batch(doc_contents, num_threads=16)
     
     if doc_titles:
-        title_tokens = ENCODER.encode_batch(doc_titles, num_threads=16)
+        titles_with_separator = [title + "\n" if title else "" for title in doc_titles]
+        title_tokens = ENCODER.encode_batch(titles_with_separator, num_threads=16)
         chunks = chunk_func(
             content_tokens,
             title_tokens_list=title_tokens,

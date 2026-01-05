@@ -17,6 +17,10 @@ defaults:
     - "business segment"
     - "event"
     - "company"
+    - "person"
+    - "product"
+    - "location"
+    - "organization"
   
   # Temporal hierarchy configuration
   temporal_hierarchy:
