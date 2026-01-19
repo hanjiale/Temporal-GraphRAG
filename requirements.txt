@@ -13,7 +13,7 @@ google-genai>=0.2.0
 networkx>=3.0
 
 # Vector database libraries
-nano-vectordb>=0.1.0
+nano-vectordb>=0.0.4.3
 hnswlib>=0.7.0
 xxhash>=3.2.0
 
@@ -22,7 +22,7 @@ nest-asyncio>=1.5.0
 aiohttp>=3.9.0
 
 # Configuration files
-pyyaml>=6.0
+PyYAML>=6.0
 python-dateutil>=2.8.0
 
 # Optional dependencies (uncomment if needed)
