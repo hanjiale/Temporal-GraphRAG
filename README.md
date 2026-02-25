@@ -1,6 +1,6 @@
 # Temporal-GraphRAG (TG-RAG)
 
-![arXiv](https://img.shields.io/badge/arXiv-2510.13590-b31b1b.svg)
+[![arXiv](https://img.shields.io/badge/arXiv-2510.13590-b31b1b.svg)](https://arxiv.org/abs/2510.13590)
 [![Hugging Face Dataset](https://img.shields.io/badge/🤗%20Hugging%20Face-Dataset-yellow)](https://huggingface.co/datasets/austinmyc/ECT-QA)
 
 Official implementation of **"RAG Meets Temporal Graphs: Time-Sensitive Modeling and Retrieval for Evolving Knowledge"**.
